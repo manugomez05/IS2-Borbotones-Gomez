@@ -1,0 +1,145 @@
+¿QUÉ ES JEST?
+
+Jest es un framework de testing para JavaScript desarrollado originalmente por Facebook (actualmente Meta).
+
+Se utiliza para crear y ejecutar pruebas automáticas que permiten comprobar que el código de una aplicación funciona correctamente.
+
+Jest puede utilizarse con diferentes proyectos de JavaScript y es muy utilizado en aplicaciones desarrolladas con React.
+
+¿CUÁLES SON SUS CARACTERÍSTICAS?
+
+- Permite crear y ejecutar pruebas automáticas.
+- Permite comprobar el comportamiento de funciones y componentes.
+- Incluye funciones para realizar comparaciones mediante expect().
+- Permite utilizar mocks para simular funciones, módulos o datos.
+- Permite ejecutar varias pruebas automáticamente.
+- Muestra información sobre las pruebas que fueron exitosas o fallaron.
+- Permite detectar errores antes de publicar una aplicación.
+
+¿PARA QUÉ SIRVE JEST?
+
+Jest sirve para comprobar automáticamente que diferentes partes de una aplicación funcionan como se espera.
+
+Por ejemplo, se puede utilizar para comprobar que una función devuelve el resultado correcto:
+
+function sumar(a, b) {
+    return a + b;
+}
+
+test("Suma dos números", () => {
+    expect(sumar(2, 3)).toBe(5);
+});
+
+EXPLICACIÓN:
+
+La función sumar recibe dos números y devuelve su suma.
+
+La prueba verifica que:
+
+sumar(2, 3)
+
+devuelva:
+
+5
+
+La función expect() permite indicar qué resultado se espera.
+
+Si el resultado es 5, la prueba es correcta. Si devuelve otro valor, Jest informa que la prueba falló.
+
+
+¿QUÉ ES REACT TESTING LIBRARY?
+
+React Testing Library es una biblioteca utilizada para realizar pruebas de componentes de React.
+
+Su objetivo principal es comprobar que los componentes funcionan correctamente desde el punto de vista del usuario.
+
+En lugar de centrarse en los detalles internos de un componente, React Testing Library permite comprobar qué puede ver y hacer el usuario.
+
+¿CUÁLES SON SUS CARACTERÍSTICAS?
+
+- Está diseñada específicamente para probar interfaces de usuario.
+- Permite renderizar componentes de React durante las pruebas.
+- Permite buscar elementos de la interfaz.
+- Permite simular acciones del usuario, como hacer clic o escribir.
+- Se enfoca en el comportamiento visible de la aplicación.
+- Favorece pruebas similares a la forma en que un usuario utiliza la aplicación.
+- Se puede utilizar junto con Jest.
+
+¿PARA QUÉ SIRVE?
+
+React Testing Library sirve para comprobar que los componentes de React se comportan correctamente.
+
+Por ejemplo, permite comprobar que un botón aparece en pantalla y que al hacer clic sobre él ocurre una determinada acción.
+
+EJEMPLO:
+
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+
+function Boton() {
+    return <button>Enviar</button>;
+}
+
+test("Muestra el botón Enviar", () => {
+
+    render(<Boton />);
+
+    const boton = screen.getByRole("button", {
+        name: "Enviar"
+    });
+
+    expect(boton).toBeInTheDocument();
+});
+
+EXPLICACIÓN:
+
+Primero se importa render(), que permite mostrar el componente durante la prueba.
+
+Luego se utiliza screen para buscar elementos que aparecen en la interfaz.
+
+La función:
+
+render(<Boton />);
+
+renderiza el componente Boton.
+
+Después:
+
+screen.getByRole("button", {
+    name: "Enviar"
+});
+
+busca un botón cuyo texto sea "Enviar".
+
+Finalmente:
+
+expect(boton).toBeInTheDocument();
+
+comprueba que el botón realmente se encuentra en la pantalla.
+
+Si el botón existe, la prueba es exitosa. Si no existe, la prueba falla.
+
+
+DIFERENCIA ENTRE JEST Y REACT TESTING LIBRARY
+
+JEST:
+
+Es el framework que permite ejecutar y organizar las pruebas, realizar comparaciones, utilizar mocks y comprobar resultados.
+
+REACT TESTING LIBRARY:
+
+Es una biblioteca especializada en probar componentes e interfaces de React simulando acciones y comportamientos similares a los de un usuario.
+
+Ambas herramientas pueden utilizarse juntas.
+
+Por ejemplo:
+
+React Testing Library permite renderizar un componente y buscar un botón.
+
+Jest permite ejecutar la prueba y comprobar que el resultado sea el esperado.
+
+En resumen:
+
+JEST = ejecuta y administra las pruebas.
+
+REACT TESTING LIBRARY = permite probar componentes de React desde la perspectiva del usuario.

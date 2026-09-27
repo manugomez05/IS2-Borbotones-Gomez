@@ -1,0 +1,170 @@
+¿QUÉ ES JSX EN REACT?
+
+JSX (JavaScript XML) es una extensión de la sintaxis de JavaScript que permite escribir una estructura similar a HTML dentro del código JavaScript. Se utiliza principalmente en React para describir cómo debe verse la interfaz de usuario.
+
+JSX no es exactamente HTML. Antes de ejecutarse, el código JSX es transformado a JavaScript que React puede interpretar.
+
+¿CUÁLES SON SUS CARACTERÍSTICAS?
+
+- Permite escribir código similar a HTML dentro de JavaScript.
+- Facilita la creación de interfaces de usuario.
+- Permite utilizar variables y expresiones de JavaScript dentro de la interfaz.
+- Permite utilizar componentes de React.
+- Los elementos JSX deben estar correctamente cerrados.
+- Se pueden utilizar atributos similares a los de HTML, aunque algunos tienen nombres diferentes, como className en lugar de class.
+
+¿PARA QUÉ SIRVE JSX?
+
+JSX sirve para definir de una manera sencilla y clara qué elementos deben mostrarse en la interfaz de una aplicación React.
+
+EJEMPLO DE JSX:
+
+function App() {
+    const nombre = "Manuel";
+
+    return (
+        <div>
+            <h1>Hola, {nombre}</h1>
+            <p>Bienvenido a mi aplicación React.</p>
+        </div>
+    );
+}
+
+EXPLICACIÓN:
+
+En este ejemplo se crea una variable llamada "nombre" que contiene el texto "Manuel".
+
+Dentro del JSX se utiliza {nombre} para insertar el valor de la variable dentro del elemento <h1>.
+
+El resultado que se visualizaría en la pantalla sería:
+
+Hola, Manuel
+Bienvenido a mi aplicación React.
+
+De esta manera, JSX permite combinar la estructura de la interfaz con expresiones de JavaScript.
+
+
+¿QUÉ SON LOS COMPONENTES EN REACT?
+
+Los componentes son bloques de código independientes y reutilizables que representan una parte de la interfaz de una aplicación.
+
+Una aplicación React puede dividirse en varios componentes. Por ejemplo, una página podría tener componentes para el menú, el encabezado, los productos y el pie de página.
+
+¿CUÁLES SON SUS CARACTERÍSTICAS?
+
+- Son reutilizables.
+- Permiten dividir una aplicación en partes más pequeñas.
+- Facilitan la organización del código.
+- Pueden recibir información mediante props.
+- Pueden tener su propio estado.
+- Generalmente se crean como funciones.
+- Pueden contener código JSX.
+
+¿PARA QUÉ SIRVEN?
+
+Sirven para organizar una aplicación en partes independientes y reutilizables, haciendo que el código sea más fácil de desarrollar, mantener y modificar.
+
+EJEMPLO DE COMPONENTE:
+
+function Saludo() {
+    return <h1>Hola, Manuel</h1>;
+}
+
+function App() {
+    return (
+        <div>
+            <Saludo />
+            <p>Esta es mi aplicación React.</p>
+        </div>
+    );
+}
+
+EXPLICACIÓN:
+
+Se crea un componente llamado "Saludo".
+
+El componente devuelve un elemento <h1> que contiene el texto "Hola, Manuel".
+
+Luego, dentro del componente "App", se utiliza <Saludo /> para mostrar el componente.
+
+Esto demuestra la reutilización de componentes, ya que el componente "Saludo" podría utilizarse varias veces en diferentes partes de la aplicación.
+
+
+¿QUÉ SON LOS PROPS EN REACT?
+
+Los props (properties) son datos que un componente puede recibir desde otro componente.
+
+Permiten enviar información de un componente padre a un componente hijo.
+
+¿CUÁLES SON SUS CARACTERÍSTICAS?
+
+- Permiten pasar información entre componentes.
+- Los datos se envían desde un componente padre hacia un componente hijo.
+- Pueden contener textos, números, valores booleanos, objetos, arrays o funciones.
+- Son de solo lectura dentro del componente que los recibe.
+- Permiten reutilizar componentes con diferentes datos.
+
+¿PARA QUÉ SIRVEN?
+
+Los props sirven para enviar información a un componente y permitir que este muestre contenido diferente dependiendo de los datos recibidos.
+
+EJEMPLO DE PROPS:
+
+function Usuario(props) {
+    return <h2>Hola, {props.nombre}</h2>;
+}
+
+function App() {
+    return (
+        <div>
+            <Usuario nombre="Manuel" />
+            <Usuario nombre="Juan" />
+        </div>
+    );
+}
+
+EXPLICACIÓN:
+
+El componente "Usuario" recibe un objeto llamado "props".
+
+Dentro de props existe una propiedad llamada "nombre".
+
+En el componente "App" se utiliza:
+
+<Usuario nombre="Manuel" />
+
+y:
+
+<Usuario nombre="Juan" />
+
+Por lo tanto, el mismo componente puede mostrar diferentes nombres.
+
+El resultado sería:
+
+Hola, Manuel
+Hola, Juan
+
+Esto permite reutilizar el mismo componente para mostrar información diferente.
+
+
+¿QUÉ ES FIREBASE?
+
+Firebase es una plataforma de desarrollo de aplicaciones creada por Google que proporciona diferentes servicios para facilitar el desarrollo de aplicaciones web y móviles.
+
+Permite desarrollar aplicaciones sin tener que crear y administrar desde cero muchos de los servicios necesarios para su funcionamiento, como bases de datos, autenticación y almacenamiento.
+
+¿CUÁLES SON SUS CARACTERÍSTICAS?
+
+- Ofrece bases de datos en la nube.
+- Permite realizar autenticación de usuarios.
+- Permite almacenar archivos mediante Firebase Storage.
+- Ofrece servicios de hosting para aplicaciones web.
+- Permite enviar notificaciones mediante Firebase Cloud Messaging.
+- Proporciona herramientas para monitorear aplicaciones.
+- Permite trabajar con aplicaciones web y móviles.
+- Se integra fácilmente con tecnologías como React, JavaScript, Android y otras plataformas.
+- Permite sincronizar información entre la aplicación y la nube.
+
+Algunos de sus servicios más conocidos son Firebase Authentication, Cloud Firestore, Realtime Database, Firebase Storage y Firebase Hosting.
+
+En una aplicación React, por ejemplo, Firebase puede utilizarse para guardar información de usuarios en una base de datos, permitir que los usuarios inicien sesión y almacenar archivos en la nube.

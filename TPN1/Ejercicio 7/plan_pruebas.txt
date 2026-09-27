@@ -1,0 +1,40 @@
+EJERCICIO 7 - PLAN DE PRUEBAS
+
+1. PRUEBAS UNITARIAS
+
+La clase ClubServiceTest verifica que el registro de una cuota familiar construye y persiste un PagoCuota con el medio MERCADO_PAGO. Se utilizan JUnit 5 y Mockito para aislar repositorios y comprobar la interacción con la capa de persistencia.
+
+Casos unitarios recomendados:
+- Registrar socio asociado a un grupo familiar existente.
+- Rechazar un socio cuando el grupo familiar no existe.
+- Registrar ingreso con imagen facial Base64.
+- Registrar egreso y completar la hora de salida.
+- Registrar cuota con EFECTIVO, TRANSFERENCIA y MERCADO_PAGO.
+- Rechazar un pago con importe cero o grupo inexistente.
+
+2. PRUEBA DE CARGA CON JMETER
+
+Objetivo: medir el comportamiento normal del endpoint protegido de consulta del tablero.
+
+Plan sugerido:
+- Thread Group: 50 usuarios concurrentes.
+- Ramp-up: 10 segundos.
+- Duración: 5 minutos.
+- HTTP Request: GET /inicio, con sesión autenticada reutilizada.
+- Listener: Summary Report y Aggregate Report.
+- Métricas: promedio, mediana, percentil 95, throughput y porcentaje de errores.
+
+Criterio de aceptación propuesto: error menor al 1% y percentil 95 menor a 1000 ms en el entorno de desarrollo.
+
+3. PRUEBA DE ESTRÉS
+
+Objetivo: encontrar el límite del sistema y observar su recuperación.
+
+Plan sugerido:
+- Comenzar con 50 usuarios y aumentar 25 cada 30 segundos.
+- Ejecutar simultáneamente GET /inicio y POST /pagos con datos de prueba.
+- Detener el incremento cuando el error supere 5% o el percentil 95 supere 3000 ms.
+- Registrar consumo de CPU, memoria, conexiones del pool y locks de la base de datos.
+- Luego de detener la carga, verificar que el sistema vuelva a responder y que no existan pagos duplicados.
+
+La prueba no debe ejecutarse contra datos productivos. Las cuentas y pagos usados deben pertenecer a una base de datos de prueba, y las imágenes faciales deben ser datos sintéticos.

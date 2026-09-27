@@ -1,0 +1,193 @@
+¿QUÉ SON LOS ESTADOS EN REACT?
+
+Los estados (state) en React son datos internos de un componente que pueden cambiar durante la ejecución de una aplicación.
+
+Cuando el estado de un componente cambia, React vuelve a renderizar el componente para mostrar la información actualizada en la interfaz.
+
+¿CUÁLES SON SUS CARACTERÍSTICAS?
+
+- Representan información que puede cambiar durante la ejecución.
+- Pertenecen a un componente.
+- Cuando cambian, React actualiza la interfaz.
+- No deben modificarse directamente.
+- Se pueden utilizar para almacenar números, textos, booleanos, listas y otros datos.
+- Generalmente se administran mediante Hooks como useState.
+
+¿PARA QUÉ SIRVEN?
+
+Los estados sirven para almacenar y controlar información que puede cambiar en una aplicación.
+
+Por ejemplo, pueden utilizarse para almacenar un contador, el contenido de un formulario, si un menú está abierto o cerrado, o si un usuario está autenticado.
+
+EJEMPLO DE ESTADO:
+
+import { useState } from "react";
+
+function Contador() {
+    const [contador, setContador] = useState(0);
+
+    return (
+        <div>
+            <h2>Contador: {contador}</h2>
+
+            <button onClick={() => setContador(contador + 1)}>
+                Aumentar
+            </button>
+        </div>
+    );
+}
+
+EXPLICACIÓN:
+
+En este ejemplo se utiliza el Hook useState para crear un estado llamado "contador".
+
+El valor inicial del contador es 0.
+
+La función setContador permite modificar su valor.
+
+Cuando el usuario presiona el botón, se ejecuta:
+
+setContador(contador + 1)
+
+Esto aumenta el contador en 1 y React actualiza automáticamente la interfaz.
+
+
+¿QUÉ SON LOS EVENTOS EN REACT?
+
+Los eventos en React son acciones que ocurren en la interfaz de usuario y que pueden ser detectadas y procesadas por los componentes.
+
+Algunos ejemplos de eventos son hacer clic en un botón, escribir en un campo de texto, mover el mouse o enviar un formulario.
+
+¿CUÁLES SON SUS CARACTERÍSTICAS?
+
+- Permiten responder a las acciones del usuario.
+- Se utilizan mediante propiedades como onClick, onChange y onSubmit.
+- Se les asigna una función que se ejecuta cuando ocurre el evento.
+- Permiten crear interfaces interactivas.
+- Utilizan nombres de eventos escritos con camelCase, como onClick.
+
+¿PARA QUÉ SIRVEN?
+
+Los eventos sirven para hacer que una aplicación reaccione a las acciones realizadas por el usuario.
+
+EJEMPLO DE EVENTO:
+
+function Boton() {
+
+    function mostrarMensaje() {
+        alert("¡Hiciste clic en el botón!");
+    }
+
+    return (
+        <button onClick={mostrarMensaje}>
+            Hacer clic
+        </button>
+    );
+}
+
+EXPLICACIÓN:
+
+En este ejemplo se crea una función llamada "mostrarMensaje".
+
+El botón tiene el evento "onClick":
+
+onClick={mostrarMensaje}
+
+Cuando el usuario hace clic sobre el botón, React ejecuta la función y aparece un mensaje.
+
+De esta manera, los eventos permiten que la aplicación responda a las acciones del usuario.
+
+
+¿QUÉ SON LOS HOOKS EN REACT?
+
+Los Hooks son funciones especiales de React que permiten utilizar características de React, como estados y efectos secundarios, dentro de componentes funcionales.
+
+Los Hooks fueron incorporados para facilitar el manejo del estado y otras funcionalidades sin necesidad de utilizar componentes basados en clases.
+
+¿CUÁLES SON SUS CARACTERÍSTICAS?
+
+- Son funciones proporcionadas por React.
+- Permiten utilizar estados y otras funcionalidades dentro de componentes funcionales.
+- Sus nombres normalmente comienzan con "use".
+- Se pueden combinar varios Hooks dentro de un mismo componente.
+- Facilitan la reutilización de lógica.
+- Los Hooks deben utilizarse siguiendo las reglas establecidas por React.
+
+¿PARA QUÉ SIRVEN?
+
+Los Hooks sirven para agregar funcionalidades a los componentes funcionales.
+
+Por ejemplo, permiten manejar estados, ejecutar código cuando un componente se monta o actualiza, acceder a referencias y compartir lógica entre componentes.
+
+PRINCIPALES HOOKS:
+
+useState:
+Permite crear y modificar estados dentro de un componente.
+
+useEffect:
+Permite ejecutar efectos secundarios, como realizar solicitudes a una API o ejecutar código cuando cambian determinados datos.
+
+useContext:
+Permite acceder a información compartida mediante un contexto sin tener que pasar los datos manualmente mediante props.
+
+useRef:
+Permite mantener una referencia a un elemento o conservar un valor entre renderizados sin provocar un nuevo renderizado.
+
+useMemo:
+Permite memorizar el resultado de un cálculo para evitar realizarlo innecesariamente.
+
+useCallback:
+Permite memorizar una función para evitar crearla nuevamente en determinados renderizados.
+
+EJEMPLO DE HOOK:
+
+import { useState } from "react";
+
+function Contador() {
+
+    const [contador, setContador] = useState(0);
+
+    return (
+        <div>
+            <h2>Valor: {contador}</h2>
+
+            <button onClick={() => setContador(contador + 1)}>
+                Sumar
+            </button>
+
+            <button onClick={() => setContador(contador - 1)}>
+                Restar
+            </button>
+        </div>
+    );
+}
+
+EXPLICACIÓN:
+
+En este ejemplo se utiliza el Hook "useState".
+
+Primero se importa desde React:
+
+import { useState } from "react";
+
+Luego se crea un estado:
+
+const [contador, setContador] = useState(0);
+
+"contador" contiene el valor actual del estado.
+
+"setContador" es la función que permite modificarlo.
+
+"0" es el valor inicial.
+
+Cuando el usuario presiona "Sumar", se ejecuta:
+
+setContador(contador + 1)
+
+Cuando presiona "Restar", se ejecuta:
+
+setContador(contador - 1)
+
+Cada vez que el estado cambia, React vuelve a renderizar el componente y muestra el nuevo valor.
+
+Este ejemplo demuestra cómo los Hooks permiten agregar y manejar estados dentro de componentes funcionales.

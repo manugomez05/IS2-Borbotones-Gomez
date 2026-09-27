@@ -1,0 +1,215 @@
+¿QUÉ SON LOS HOOKS DE RENDIMIENTO?
+
+Los Hooks de rendimiento son Hooks de React que permiten optimizar una aplicación evitando cálculos o renderizados innecesarios.
+
+Los principales Hooks relacionados con el rendimiento son useMemo y useCallback.
+
+useMemo permite guardar en memoria el resultado de un cálculo para no volver a realizarlo cuando no sea necesario.
+
+useCallback permite guardar en memoria una función para evitar que se cree nuevamente en cada renderizado cuando no sea necesario.
+
+¿CUÁLES SON SUS CARACTERÍSTICAS?
+
+- Permiten optimizar el rendimiento de una aplicación.
+- Evitan cálculos innecesarios.
+- Pueden evitar que determinadas funciones se creen nuevamente en cada renderizado.
+- Son especialmente útiles cuando existen cálculos costosos o componentes que se renderizan frecuentemente.
+- No deben utilizarse en todos los casos, sino cuando realmente aportan una mejora de rendimiento.
+
+¿PARA QUÉ SIRVEN?
+
+Sirven para reducir trabajo innecesario durante los renderizados y mejorar el rendimiento de aplicaciones React.
+
+EJEMPLO CON useMemo:
+
+import { useMemo, useState } from "react";
+
+function App() {
+
+    const [numero, setNumero] = useState(1);
+    const [contador, setContador] = useState(0);
+
+    const resultado = useMemo(() => {
+        return numero * 100;
+    }, [numero]);
+
+    return (
+        <div>
+
+            <h2>Resultado: {resultado}</h2>
+
+            <button onClick={() => setNumero(numero + 1)}>
+                Cambiar número
+            </button>
+
+            <button onClick={() => setContador(contador + 1)}>
+                Contador: {contador}
+            </button>
+
+        </div>
+    );
+}
+
+EXPLICACIÓN:
+
+En este ejemplo se utiliza useMemo para guardar el resultado de una operación.
+
+La expresión:
+
+const resultado = useMemo(() => {
+    return numero * 100;
+}, [numero]);
+
+calcula el resultado de multiplicar "numero" por 100.
+
+El segundo parámetro, [numero], indica que el cálculo solamente debe realizarse nuevamente cuando cambie el valor de "numero".
+
+Si cambia solamente el estado "contador", React vuelve a renderizar el componente, pero useMemo puede reutilizar el resultado anterior.
+
+Esto permite evitar cálculos innecesarios.
+
+
+EJEMPLO CON useCallback:
+
+import { useCallback, useState } from "react";
+
+function App() {
+
+    const [contador, setContador] = useState(0);
+
+    const aumentar = useCallback(() => {
+        setContador(valor => valor + 1);
+    }, []);
+
+    return (
+        <div>
+
+            <h2>Contador: {contador}</h2>
+
+            <button onClick={aumentar}>
+                Aumentar
+            </button>
+
+        </div>
+    );
+}
+
+EXPLICACIÓN:
+
+En este caso se utiliza useCallback para memorizar la función "aumentar".
+
+Esto permite conservar la misma referencia de la función entre renderizados mientras sus dependencias no cambien.
+
+Es especialmente útil cuando se pasa una función como prop a componentes que están optimizados para evitar renderizados innecesarios.
+
+
+¿QUÉ ES EL CONTEXTO EN REACT?
+
+El Contexto (Context) de React es una funcionalidad que permite compartir información entre diferentes componentes sin tener que pasar los datos manualmente mediante props.
+
+Es útil cuando muchos componentes necesitan acceder a la misma información.
+
+Por ejemplo, se puede utilizar Context para compartir:
+
+- Usuario actual.
+- Tema de la aplicación.
+- Idioma.
+- Configuraciones.
+- Datos globales.
+
+¿CUÁLES SON SUS CARACTERÍSTICAS?
+
+- Permite compartir información entre componentes.
+- Evita tener que pasar props por muchos niveles de componentes.
+- Puede utilizarse mediante createContext y useContext.
+- Permite que diferentes componentes accedan a los mismos datos.
+- Es útil para información que necesitan muchos componentes de una aplicación.
+
+¿PARA QUÉ SIRVE?
+
+El Context sirve principalmente para compartir datos entre componentes que se encuentran en diferentes niveles de una aplicación.
+
+Por ejemplo, si un componente ubicado muy arriba tiene información del usuario y varios componentes necesitan utilizarla, Context permite acceder directamente a esa información sin tener que pasarla componente por componente.
+
+
+DIFERENCIA ENTRE CONTEXT Y PROPS
+
+PROPS:
+
+- Permiten pasar información de un componente padre a un componente hijo.
+- Los datos se pasan explícitamente.
+- Son ideales para comunicar componentes relacionados directamente.
+- Si hay muchos niveles de componentes, puede ser necesario pasar los props por cada nivel.
+
+CONTEXT:
+
+- Permite compartir información entre varios componentes.
+- No es necesario pasar los datos manualmente por cada componente intermedio.
+- Es útil para información que necesitan muchos componentes.
+- Los componentes pueden acceder al contexto directamente.
+
+En resumen:
+
+PROPS = comunicación directa entre componentes.
+
+CONTEXT = compartir información entre múltiples componentes sin pasarla manualmente por todos los niveles.
+
+
+EJEMPLO DE CONTEXT:
+
+import {
+    createContext,
+    useContext
+} from "react";
+
+const UsuarioContext = createContext();
+
+function Usuario() {
+
+    const nombre = useContext(UsuarioContext);
+
+    return <h2>Usuario: {nombre}</h2>;
+}
+
+function App() {
+
+    return (
+        <UsuarioContext.Provider value="Manuel">
+
+            <div>
+                <h1>Mi aplicación</h1>
+                <Usuario />
+            </div>
+
+        </UsuarioContext.Provider>
+    );
+}
+
+EXPLICACIÓN:
+
+Primero se crea un contexto llamado "UsuarioContext":
+
+const UsuarioContext = createContext();
+
+Luego se utiliza el Provider para proporcionar un valor a los componentes que se encuentran dentro de él:
+
+<UsuarioContext.Provider value="Manuel">
+
+El valor proporcionado es "Manuel".
+
+El componente "Usuario" utiliza el Hook useContext para obtener ese valor:
+
+const nombre = useContext(UsuarioContext);
+
+Finalmente, el nombre se muestra en pantalla:
+
+<h2>Usuario: {nombre}</h2>
+
+El resultado sería:
+
+Mi aplicación
+Usuario: Manuel
+
+En este ejemplo no fue necesario pasar el nombre mediante props desde App hasta Usuario.
+
+El contexto permite que Usuario acceda directamente al valor proporcionado por UsuarioContext.

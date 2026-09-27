@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Cambiar clave')}"></head>
+<body class="bg-light">
+<nav th:replace="~{fragments/layout :: navbar(true)}"></nav>
+<main class="container py-5"><div class="row justify-content-center"><div class="col-12 col-md-6">
+    <section class="card border-0 shadow-sm"><div class="card-body p-4 p-md-5">
+        <h1 class="h3 mb-4">Cambiar clave</h1>
+        <div class="alert alert-success" th:if="${mensaje}" th:text="${mensaje}"></div>
+        <div class="alert alert-danger" th:if="${error}" th:text="${error}"></div>
+        <form method="post" th:action="@{/clave}" th:object="${cambioClave}">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+            <div class="mb-3"><label class="form-label">Clave actual</label><input class="form-control" type="password" th:field="*{claveActual}" required></div>
+            <div class="mb-4"><label class="form-label">Nueva clave</label><input class="form-control" type="password" th:field="*{nuevaClave}" minlength="8" required></div>
+            <button class="btn btn-primary" type="submit">Actualizar clave</button>
+        </form>
+    </div></section>
+</div></div></main>
+</body>
+</html>

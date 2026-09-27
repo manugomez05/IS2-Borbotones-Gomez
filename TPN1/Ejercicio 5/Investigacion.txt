@@ -1,0 +1,164 @@
+¿QUÉ ES REACT DOM?
+
+React DOM es una biblioteca que permite a React interactuar con el DOM (Document Object Model) del navegador.
+
+Su función principal es conectar los componentes de React con el documento HTML que se muestra en el navegador. De esta manera, React puede crear, actualizar y eliminar elementos de la interfaz cuando sea necesario.
+
+¿CUÁLES SON SUS CARACTERÍSTICAS?
+
+- Permite renderizar componentes de React en el navegador.
+- Se encarga de conectar React con el DOM del navegador.
+- Permite actualizar la interfaz cuando cambian los datos o estados.
+- Evita tener que modificar manualmente todos los elementos del DOM.
+- Utiliza métodos como createRoot() para iniciar una aplicación React.
+- Trabaja junto con React para construir interfaces dinámicas.
+
+¿PARA QUÉ SIRVE?
+
+React DOM sirve para mostrar los componentes de React dentro de una página web y actualizar la interfaz cuando cambia la información de la aplicación.
+
+EJEMPLO DE REACT DOM:
+
+import { createRoot } from "react-dom/client";
+
+function App() {
+    return (
+        <h1>Hola, Manuel</h1>
+    );
+}
+
+const root = createRoot(document.getElementById("root"));
+
+root.render(<App />);
+
+EXPLICACIÓN:
+
+Primero se importa la función createRoot desde React DOM:
+
+import { createRoot } from "react-dom/client";
+
+Luego se crea un componente llamado "App", que devuelve un elemento <h1>.
+
+Después se busca en el documento HTML el elemento que tiene el ID "root":
+
+document.getElementById("root")
+
+La función createRoot() permite indicarle a React dónde debe mostrar la aplicación.
+
+Finalmente:
+
+root.render(<App />);
+
+indica que el componente App debe renderizarse dentro del elemento "root".
+
+Por lo tanto, en el navegador se visualizará:
+
+Hola, Manuel
+
+
+¿QUÉ ES REACT ROUTER?
+
+React Router es una biblioteca utilizada en aplicaciones React para gestionar la navegación entre diferentes páginas o vistas.
+
+Permite crear diferentes rutas dentro de una aplicación sin necesidad de recargar completamente la página.
+
+Por ejemplo, una aplicación puede tener las siguientes rutas:
+
+/        -> Página principal
+/productos -> Productos
+/contacto  -> Contacto
+
+¿CUÁLES SON SUS CARACTERÍSTICAS?
+
+- Permite crear diferentes rutas dentro de una aplicación React.
+- Permite navegar entre páginas sin recargar completamente el navegador.
+- Permite asociar componentes diferentes a cada ruta.
+- Permite crear aplicaciones de una sola página (SPA).
+- Permite utilizar parámetros dentro de las URLs.
+- Permite crear rutas anidadas.
+- Incluye componentes como BrowserRouter, Routes, Route y Link.
+
+¿PARA QUÉ SIRVE?
+
+React Router sirve para controlar la navegación de una aplicación React.
+
+Permite que el usuario pueda acceder a diferentes secciones de la aplicación utilizando diferentes URLs, manteniendo la aplicación funcionando como una SPA.
+
+EJEMPLO DE REACT ROUTER:
+
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+    Link
+} from "react-router-dom";
+
+function Inicio() {
+    return <h1>Página de inicio</h1>;
+}
+
+function Productos() {
+    return <h1>Página de productos</h1>;
+}
+
+function App() {
+    return (
+        <BrowserRouter>
+
+            <nav>
+                <Link to="/">Inicio</Link>
+                <Link to="/productos">Productos</Link>
+            </nav>
+
+            <Routes>
+
+                <Route path="/" element={<Inicio />} />
+
+                <Route
+                    path="/productos"
+                    element={<Productos />}
+                />
+
+            </Routes>
+
+        </BrowserRouter>
+    );
+}
+
+EXPLICACIÓN:
+
+Primero se importan los componentes necesarios de React Router:
+
+BrowserRouter:
+Se encarga de controlar la navegación de la aplicación utilizando la URL del navegador.
+
+Routes:
+Contiene todas las rutas definidas de la aplicación.
+
+Route:
+Define una ruta y especifica qué componente debe mostrarse cuando se accede a ella.
+
+Link:
+Permite crear enlaces para navegar entre las diferentes rutas sin recargar la página.
+
+En el ejemplo se crean dos componentes:
+
+Inicio:
+Muestra "Página de inicio".
+
+Productos:
+Muestra "Página de productos".
+
+Después se definen dos rutas:
+
+<Route path="/" element={<Inicio />} />
+
+Esta ruta muestra el componente Inicio cuando el usuario accede a "/".
+
+<Route path="/productos" element={<Productos />} />
+
+Esta ruta muestra el componente Productos cuando el usuario accede a "/productos".
+
+Finalmente, se utilizan los componentes Link para permitir que el usuario navegue entre las dos páginas.
+
+De esta manera, React Router permite crear una aplicación con diferentes vistas y navegar entre ellas sin tener que recargar completamente la página.

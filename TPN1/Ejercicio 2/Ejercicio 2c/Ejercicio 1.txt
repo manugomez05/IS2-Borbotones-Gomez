@@ -1,0 +1,46 @@
+¿QUÉ ES REACT?
+
+React es una biblioteca de JavaScript de código abierto, desarrollada originalmente por Facebook (actualmente Meta), que se utiliza para crear interfaces de usuario (UI) para aplicaciones web. Permite construir páginas y aplicaciones mediante componentes reutilizables.
+
+¿PARA QUÉ SIRVE REACT?
+
+React sirve para desarrollar interfaces web dinámicas e interactivas. Se utiliza principalmente para crear aplicaciones web modernas, como tiendas online, redes sociales, sistemas administrativos, dashboards y aplicaciones de una sola página (SPA).
+
+CARACTERÍSTICAS DE REACT
+
+- Está basado en componentes reutilizables.
+- Utiliza JavaScript y JSX.
+- Utiliza un Virtual DOM para mejorar el rendimiento.
+- Permite crear interfaces dinámicas e interactivas.
+- Facilita la reutilización de código.
+- Permite manejar estados y eventos de los componentes.
+- Tiene una gran comunidad y muchas bibliotecas complementarias.
+- Puede utilizarse junto con otras tecnologías y herramientas de JavaScript.
+
+VENTAJAS DE REACT
+
+- Permite reutilizar componentes, reduciendo la cantidad de código.
+- Facilita el desarrollo y mantenimiento de aplicaciones grandes.
+- Ofrece buen rendimiento gracias al Virtual DOM.
+- Tiene una comunidad muy grande.
+- Existe una gran cantidad de documentación, herramientas y bibliotecas.
+- Es flexible y puede combinarse con diferentes tecnologías.
+- Permite crear interfaces modernas e interactivas.
+
+DESVENTAJAS DE REACT
+
+- Al principio puede ser difícil de aprender, especialmente JSX y el manejo del estado.
+- React es principalmente una biblioteca de interfaces, por lo que para crear una aplicación completa normalmente se necesitan otras herramientas.
+- La gran cantidad de bibliotecas y opciones disponibles puede generar confusión en principiantes.
+- Las tecnologías y herramientas del ecosistema pueden cambiar con frecuencia.
+- Para proyectos pequeños puede resultar innecesario utilizar una estructura demasiado compleja.
+
+¿QUÉ ES REACT BOOTSTRAP?
+
+React Bootstrap es una biblioteca que permite utilizar los componentes y estilos de Bootstrap dentro de aplicaciones desarrolladas con React.
+
+Proporciona componentes ya preparados, como botones, formularios, menús, ventanas, tarjetas y barras de navegación, que pueden utilizarse directamente en una aplicación React.
+
+Su principal ventaja es que permite crear interfaces atractivas y adaptables a diferentes tamaños de pantalla de manera más rápida, sin tener que desarrollar todos los estilos desde cero.
+
+Por ejemplo, en lugar de crear manualmente el código HTML y CSS de un botón, React Bootstrap permite utilizar componentes de React ya preparados.

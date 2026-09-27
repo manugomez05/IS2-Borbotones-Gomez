@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Inicio')}"></head>
+<body class="bg-light">
+<nav th:replace="~{fragments/layout :: navbar(true)}"></nav>
+<main class="container py-5">
+    <div class="p-4 p-md-5 bg-white rounded-3 shadow-sm">
+        <p class="text-primary fw-semibold mb-2">Sesión iniciada</p>
+        <h1 class="display-6">Hola, <span th:text="${usuario.nombre}">Usuario</span>.</h1>
+        <p class="lead text-secondary">Tu cuenta está protegida y tus datos se transfieren mediante DTOs entre la vista y la capa de servicio.</p>
+        <dl class="row mt-4 mb-0">
+            <dt class="col-sm-3">Nombre completo</dt><dd class="col-sm-9" th:text="${usuario.nombre + ' ' + usuario.apellido}"></dd>
+            <dt class="col-sm-3">Documento</dt><dd class="col-sm-9" th:text="${usuario.documento}"></dd>
+            <dt class="col-sm-3">Correo</dt><dd class="col-sm-9" th:text="${usuario.correoPersonal}"></dd>
+        </dl>
+    </div>
+</main>
+</body>
+</html>

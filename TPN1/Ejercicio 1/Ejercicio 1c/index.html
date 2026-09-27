@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registro</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<main class="contenedor">
+		<div class="formulario">
+			<h1 id="tituloFormulario">Crear una cuenta</h1>
+			<p id="descripcionFormulario" class="descripcion">Completá tus datos para registrarte.</p>
+
+			<div class="pestanas" role="tablist" aria-label="Acceso a la cuenta">
+				<button type="button" id="pestanaRegistro" class="pestana activa" role="tab" aria-selected="true">Registrarse</button>
+				<button type="button" id="pestanaInicio" class="pestana" role="tab" aria-selected="false">Iniciar sesión</button>
+			</div>
+
+			<form id="formularioRegistro" novalidate>
+				<label for="nombre">Nombre completo</label>
+				<input type="text" id="nombre" name="nombre" autocomplete="name" required>
+				<small class="error" id="errorNombre"></small>
+
+				<label for="emailRegistro">Correo electrónico</label>
+				<input type="email" id="emailRegistro" name="emailRegistro" autocomplete="email" required>
+				<small class="error" id="errorEmailRegistro"></small>
+
+				<label for="passwordRegistro">Contraseña</label>
+				<input type="password" id="passwordRegistro" name="passwordRegistro" autocomplete="new-password" required>
+				<small class="error" id="errorPasswordRegistro"></small>
+
+				<label for="confirmarPassword">Confirmar contraseña</label>
+				<input type="password" id="confirmarPassword" name="confirmarPassword" autocomplete="new-password" required>
+				<small class="error" id="errorConfirmarPassword"></small>
+
+				<label class="terminos" for="aceptaTerminos">
+					<input type="checkbox" id="aceptaTerminos" name="aceptaTerminos" required>
+					Acepto los términos y condiciones.
+				</label>
+				<small class="error" id="errorTerminos"></small>
+
+				<button type="submit">Registrarme</button>
+			</form>
+
+			<form id="formularioInicio" class="oculto" novalidate>
+				<label for="emailInicio">Correo electrónico</label>
+				<input type="email" id="emailInicio" name="emailInicio" autocomplete="email" required>
+				<small class="error" id="errorEmailInicio"></small>
+
+				<label for="passwordInicio">Contraseña</label>
+				<input type="password" id="passwordInicio" name="passwordInicio" autocomplete="current-password" required>
+				<small class="error" id="errorPasswordInicio"></small>
+
+				<button type="submit">Iniciar sesión</button>
+			</form>
+
+			<p id="mensajeResultado" class="mensaje" role="status"></p>
+		</div>
+	</main>
+
+	<script src="app.js"></script>
+</body>
+</html>
