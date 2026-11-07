@@ -2,3 +2,11 @@
 **/target/
 *.class
 *.log
+
+/TPN2/Ejercicio2/Backend/src/main/resources/application-local.properties
+
+/TPN2/Ejercicio1/Backend/src/main/resources/application-local.properties
+
+/TPN2/Ejercicio5/Backend/src/main/resources/application-local.properties
+
+/TPN2/Ejercicio3/Backend/src/main/resources/application-local.properties
